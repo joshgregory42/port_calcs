@@ -10,6 +10,19 @@ Will be using a variety of materials. Spec sheets will be linked to in the progr
 
 # Calculate the deflection and elastic curve for cantilevered beam due to a force P on the end (Hibbeler solids 10th ed., p. 815, first diagram from the top)
 def force_deflect(I, L, P, E, x):
+    """
+    Calculate the deflection and elastic curve for a cantilevered beam due to a force P on the end.
+
+    Parameters:
+    I (float): Moment of inertia of the section.
+    L (float): Length of the beam.
+    P (float): Force applied on the end of the beam.
+    E (float): Modulus of elasticity of the material.
+    x (float): Distance from the fixed end.
+
+    Returns:
+    tuple: Maximum deflection angle, maximum deflection, deflection at distance x.
+    """
     
     theta_max = (- P * L**2) / (2*E*I)
 
@@ -21,6 +34,19 @@ def force_deflect(I, L, P, E, x):
 
 # Calculate the deflection and elastic curve for cantilevered beam due to couple moment M_0 on the end (Hibbeler solids 10th ed., p. 815, fourth diagram from the top)
 def moment_deflect(I, L, E, M_0, x):
+    """
+    Calculate the deflection and elastic curve for a cantilevered beam due to a couple moment M_0 on the end.
+
+    Parameters:
+    I (float): Moment of inertia of the section.
+    L (float): Length of the beam.
+    E (float): Modulus of elasticity of the material.
+    M_0 (float): Couple moment on the end of the beam.
+    x (float): Distance from the fixed end.
+
+    Returns:
+    tuple: Maximum deflection angle, maximum deflection, deflection at distance x.
+    """
     
     theta_max = (M_0*L) / (E*I)
 
