@@ -89,7 +89,7 @@ decimal_round = 3 # Round to this
 
 print('------Calculations from force------')
 print('Maximum deflection:')
-print('\n' + str(round(force_stats[1], decimal_round)) + ' m = ' +   str(round(force_stats[1]*1000, decimal_round)) + ' mm')
+print('\n' + str(round(force_stats[1], decimal_round)) + ' m = ' + str(round(force_stats[1]*1000, decimal_round)) + ' mm')
 
 print('\nMaximum angular deflection:')
 print(str(round(force_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(force_stats[0], decimal_round))) + ' deg.')
@@ -97,7 +97,7 @@ print('\n\n\n')
 
 print('------Calculations from moment------')
 print('Maximum deflection:')
-print('\n' + str(round(moment_stats[1], decimal_round)) + ' m = ' +   str(round(moment_stats[1]*1000, decimal_round)) + ' mm')
+print('\n' + str(round(moment_stats[1], decimal_round)) + ' m = ' + str(round(moment_stats[1]*1000, decimal_round)) + ' mm')
 
 print('\nMaximum angular deflection:')
 print(str(round(moment_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(moment_stats[0], decimal_round))) + ' deg.')
