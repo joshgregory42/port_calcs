@@ -107,7 +107,7 @@ print(str(round(moment_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degre
 
 ## Elastic curve plots
 
-Elastic plot from force
+# Elastic plot from force
 plt.plot(x*1000, force_stats[2]*1000, 'b')
 plt.xlabel('Position (mm)')
 plt.ylabel('Deflection (mm)')
