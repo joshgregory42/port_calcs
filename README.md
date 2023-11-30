@@ -22,17 +22,12 @@ The file that needs to be run is `solid_calcs.py`. It requires several inputs fr
 
 `M_0`: User-entered couple moment (i.e. pure moment, **not** a moment due to a force) in Newton-meters (N*m).
 
-The code then calculates the area moment of inertia, or second moment of inertia, according to
-
-$$ I = \frac{ \pi }{ 64 } \left( d_o^4 - d_i^4 \right) $$
-where $d_o$ and $d_i$ are the outer and inner diameters in meters, respectively.
-
-Also note that $I_x = I_y = I$.
+The code then calculates the area moment of inertia, or second moment of inertia, according to $I = \frac{ \pi }{ 64 } \left( d_o^4 - d_i^4 \right)$, where $d_o$ and $d_i$ are the outer and inner diameters in meters, respectively. Also note that $I_x = I_y = I$.
 
 This information is then passed to two functions, `force_deflect` and `moment_deflect`.
 
 
-## Description -- `force_deflect`
+## Description - `force_deflect`
 
 `force_deflect` takes the following as inputs:
 
@@ -44,7 +39,7 @@ This information is then passed to two functions, `force_deflect` and `moment_de
   
 It then uses equations for the angular and length displacement from beam tables for a cantilevered beam with a force $P$ on the end to calculate the maximum deflection (both angular and displacement). It also returns the elastic curve to be plotted later.
 
-## Description -- `moment_deflect`
+## Description - `moment_deflect`
 
 `moment_deflect` takes the following as inputs:
 
