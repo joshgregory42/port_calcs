@@ -6,7 +6,7 @@ References:
 
 Hibbeler, Russell C. *Mechanics of Materials*. 10th ed., Pearson, 2017.
 
-## Structure of the Code
+## Code Structure - `solids_calcs.py`
 
 The file that needs to be run is `solid_calcs.py`. It requires several inputs from the user as follows:
 
@@ -57,3 +57,7 @@ The code under `## Elastic curve plots` plots the resulting elastic curves from 
 # plt.savefig('force_elastic_curve', dpi=1000)
 # plt.savefig('moment_elastic_curve', dpi=1000)
 ```
+
+## Code Structure - `solids_calcs_online.ipynb`
+
+`solids_calcs_online.ipynb` does the exact same math as `solids_calcs.py`, the only difference being that in `solids_calcs_online.ipynb` you have to manually type in the parameters before running the code (exactly like a MatLab script). It also runs in the cloud, so you don't need Python on your computer. What you edit is at the top of the document with a comment next to it saying ''Edit this line'' and a description of what the variable represents. The code handles the rest.

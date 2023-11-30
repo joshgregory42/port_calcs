@@ -3,7 +3,27 @@ import matplotlib.pyplot as plt
 
 '''
 Solid mechanics calculations for trocar prototypes.
+
+Here the inputs must be typed into the program itself. This allows the code to be run online on something like JypyterLab ()
 '''
+
+# Moment of inertia calculations assuming tubular circular area
+
+# d_mm is the diameter in mm
+d_mm_outer = 3 # Edit this line
+d_mm_inner = 4 # Edit this line
+
+# Length of the trocar in mm
+L_mm = 100 # Edit this line
+
+# Applied force on end of trocar in N
+P = 30 # Edit this line
+
+# Young's modulus/modulus of elasticity in MPa
+E_mpa = 99 # Edit this line
+
+# Couple moment on end of trocar, N*m
+M_0 = 0.5 # Edit this line
 
 # Calculate the deflection and elastic curve for cantilevered beam due to a force P on the end (Hibbeler solids 10th ed., p. 815, first diagram from the top)
 def force_deflect(I, L, P, E, x):
@@ -58,28 +78,16 @@ def rad_to_degree(rad_meas):
 
     return deg_meas
 
-# Moment of inertia calculations assuming tubular circular area
-d_mm_outer = float(input('\nOuter diameter in mm: '))
-d_mm_inner = float(input('Inner diameter in mm: '))
-
 d_m_outer = d_mm_outer / 1000
 d_m_inner = d_mm_inner / 1000
 
 I = np.pi*(d_m_outer**4 - d_m_inner**4) / 64 # I_x = I_y = I
 
-L_mm = float(input('Length in mm: '))
 L = L_mm / 1000
-
-P = float(input('Applied force in N: '))
 
 x = np.linspace(start=0, stop=L, num=10000) # Points for elastic curve
 
-E_mpa = float(input("Young's modulus/modulus of elasticity in MPa: "))
-
 E = E_mpa * 1000000
-
-M_0 = float(input('Couple moment, N*m: '))
-
 
 force_stats = force_deflect(I, L, P, E, x)
 moment_stats = moment_deflect(I, L, E, M_0, x)
