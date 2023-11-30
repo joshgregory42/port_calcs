@@ -61,12 +61,14 @@ def rad_to_degree(rad_meas):
 
     return deg_meas
 
-# Moment of inertia calculations assuming circular area
-d_mm = float(input('Diameter in mm: '))
+# Moment of inertia calculations assuming tubular circular area
+d_mm_outer = float(input('\nOuter diameter in mm: '))
+d_mm_inner = float(input('Inner diameter in mm: '))
 
-r = (d_mm / 2) / 1000
+d_m_outer = d_mm_outer / 1000
+d_m_inner = d_mm_inner / 1000
 
-I = (1/8)*np.pi*r**4 # I_x = I_y = I
+I = np.pi*(d_m_outer**4 - d_m_inner**4) / 64 # I_x = I_y = I
 
 L_mm = float(input('Length in mm: '))
 L = L_mm / 1000
@@ -87,25 +89,25 @@ moment_stats = moment_deflect(I, L, E, M_0, x)
 
 decimal_round = 3 # Round to this
 
-print('------Calculations from force------')
+print('\n------Calculations from force------')
 print('Maximum deflection:')
-print('\n' + str(round(force_stats[1], decimal_round)) + ' m = ' + str(round(force_stats[1]*1000, decimal_round)) + ' mm')
+print(str(round(force_stats[1], decimal_round)) + ' m = ' + str(round(force_stats[1]*1000, decimal_round)) + ' mm')
 
 print('\nMaximum angular deflection:')
 print(str(round(force_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(force_stats[0], decimal_round))) + ' deg.')
-print('\n\n\n')
+print('\n')
 
 print('------Calculations from moment------')
 print('Maximum deflection:')
-print('\n' + str(round(moment_stats[1], decimal_round)) + ' m = ' + str(round(moment_stats[1]*1000, decimal_round)) + ' mm')
+print(str(round(moment_stats[1], decimal_round)) + ' m = ' + str(round(moment_stats[1]*1000, decimal_round)) + ' mm')
 
 print('\nMaximum angular deflection:')
 print(str(round(moment_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(moment_stats[0], decimal_round))) + ' deg.')
 
 
-### Elastic curve plots
+## Elastic curve plots
 
-# Elastic plot from force
+Elastic plot from force
 plt.plot(x*1000, force_stats[2]*1000, 'b')
 plt.xlabel('Position (mm)')
 plt.ylabel('Deflection (mm)')
