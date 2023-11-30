@@ -2,9 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 '''
-Solid mechanics calculations for the double-bumper design.
-
-Will be using a variety of materials. Spec sheets will be linked to in the program itself.
+Solid mechanics calculations for trocar prototypes.
 '''
 
 # Calculate the deflection and elastic curve for cantilevered beam due to a force P on the end (Hibbeler solids 10th ed., p. 815, first diagram from the top)
@@ -87,6 +85,8 @@ force_stats = force_deflect(I, L, P, E, x)
 moment_stats = moment_deflect(I, L, E, M_0, x)
 
 decimal_round = 3 # Round to this
+
+# Printing outputs
 
 print('\n------Calculations from force------')
 print('Maximum deflection:')
