@@ -123,5 +123,3 @@ plt.title('Elastic Curve, Moment')
 plt.grid(True)
 # plt.savefig('moment_elastic_curve', dpi=1000)
 plt.show()
-
-# print('Executed')
