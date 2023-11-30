@@ -60,4 +60,4 @@ The code under `## Elastic curve plots` plots the resulting elastic curves from 
 
 ## Code Structure - `solids_calcs_online.ipynb`
 
-`solids_calcs_online.ipynb` does the exact same math as `solids_calcs.py`, the only difference being that in `solids_calcs_online.ipynb` you have to manually type in the parameters before running the code (exactly like a MatLab script). It also runs in the cloud, so you don't need Python on your computer. What you edit is at the top of the document with a comment next to it saying ''Edit this line'' and a description of what the variable represents. The code handles the rest.
+`solids_calcs_online.ipynb` does the exact same math as `solids_calcs.py`, the only difference being that in `solids_calcs_online.ipynb` you have to manually type in the parameters before running the code (exactly like a MatLab script). It also runs in the cloud with [Google Colab](https://colab.research.google.com/), so you don't need Python on your computer. What you edit is at the top of the document with a comment next to it saying ''Edit this line'' and a description of what the variable represents. The code handles the rest.
