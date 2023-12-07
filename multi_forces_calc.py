@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 '''
@@ -57,6 +59,7 @@ def moment_deflect(I, L, E, M_0):
     return v_max, theta_max
 
 def plot(df, title):
+    plt.figure()
     plt.plot(df.iloc[:, 0], df.iloc[:, 1], 'r')
     plt.xlabel(df.columns[0])
     plt.ylabel(df.columns[1])
@@ -64,6 +67,7 @@ def plot(df, title):
     plt.show()
     plt.savefig(title.lower().replace(" ", "_")+'_disp.png', dpi=1000)
 
+    plt.figure()
     plt.plot(df.iloc[:, 0], df.iloc[:, 2], 'b')
     plt.xlabel(df.columns[0])
     plt.ylabel(df.columns[2])

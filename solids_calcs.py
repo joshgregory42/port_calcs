@@ -111,7 +111,7 @@ def plot(x, force_stats, moment_stats):
     plt.ylabel('Deflection (mm)')
     plt.title('Elastic Curve, Force')
     plt.grid(True)
-    # plt.savefig('force_elastic_curve', dpi=1000)
+    plt.savefig('force_elastic_curve', dpi=1000)
     plt.show()
 
     # Elastic plot from moment
@@ -120,5 +120,5 @@ def plot(x, force_stats, moment_stats):
     plt.ylabel('Deflection (mm)')
     plt.title('Elastic Curve, Moment')
     plt.grid(True)
-    # plt.savefig('moment_elastic_curve', dpi=1000)
+    plt.savefig('moment_elastic_curve', dpi=1000)
     plt.show()
