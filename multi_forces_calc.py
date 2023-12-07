@@ -59,42 +59,48 @@ def rad_to_degree(rad_meas):
     return deg_meas
 
 # Moment of inertia calculations assuming tubular circular area
-d_mm_outer = float(input('\nOuter diameter in mm: '))
-d_mm_inner = float(input('Inner diameter in mm: '))
+d_mm_outer = 4.5 # For the double balloon
+
+# float(input('\nOuter diameter in mm: '))
+d_mm_inner = 3.5 # For the double balloon
+
+# float(input('Inner diameter in mm: '))
 
 d_m_outer = d_mm_outer / 1000
 d_m_inner = d_mm_inner / 1000
 
 I = np.pi*(d_m_outer**4 - d_m_inner**4) / 64 # I_x = I_y = I
 
-L_mm = float(input('Length in mm: '))
+L_mm = 145 # For the double balloon
+
+#  float(input('Length in mm: '))
 L = L_mm / 1000
 
-P = float(input('Applied force in N: '))
+# P = float(input('Applied force in N: '))
 
 x = np.linspace(start=0, stop=L, num=10000) # Points for elastic curve
 
-E_mpa = float(input("Young's modulus/modulus of elasticity in MPa: "))
+# E_mpa = float(input("Young's modulus/modulus of elasticity in MPa: "))
 
-E = E_mpa * 1000000
+# E = E_mpa * 1000000
 
 # M_0 = float(input('Couple moment, N*m: '))
 
 
-force_stats = force_deflect(I, L, P, E, x)
+# force_stats = force_deflect(I, L, P, E, x)
 # moment_stats = moment_deflect(I, L, E, M_0, x)
 
 decimal_round = 3 # Round to this
 
 # Printing outputs
 
-print('\n------Calculations from force------')
-print('Maximum deflection:')
-print(str(round(force_stats[1], decimal_round)) + ' m = ' + str(round(force_stats[1]*1000, decimal_round)) + ' mm')
+# print('\n------Calculations from force------')
+# print('Maximum deflection:')
+# print(str(round(force_stats[1], decimal_round)) + ' m = ' + str(round(force_stats[1]*1000, decimal_round)) + ' mm')
 
-print('\nMaximum angular deflection:')
-print(str(round(force_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(force_stats[0], decimal_round))) + ' deg.')
-print('\n')
+# print('\nMaximum angular deflection:')
+# print(str(round(force_stats[0], decimal_round)) + ' rad. = ' + str(rad_to_degree(round(force_stats[0], decimal_round))) + ' deg.')
+# print('\n')
 
 # print('------Calculations from moment------')
 # print('Maximum deflection:')
@@ -122,3 +128,29 @@ def plot(x, force_stats, moment_stats):
     plt.grid(True)
     # plt.savefig('moment_elastic_curve', dpi=1000)
     plt.show()
+
+# Young's modulus, MPa
+clear_young = 2080
+durable_young = 994
+white_young = 2020.16
+
+def max_deflect(forces, I, L):
+
+    x = 10
+
+    clear_young = 2080 * 1000000
+    durable_young = 994 * 1000000
+    white_young = 2020.16 * 1000000
+
+    biomed_clear_max = force_deflect(I=I, L=L, P=forces, E=clear_young, x=x)
+
+    
+
+    return biomed_clear_max
+    
+
+forces = np.linspace(0, 50, 10000)
+test = max_deflect(forces=forces, I=I, L=L)
+
+print(test[0])
+print(test[1])
